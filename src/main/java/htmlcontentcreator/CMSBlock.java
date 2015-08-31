@@ -3,9 +3,9 @@ package htmlcontentcreator;
 
 public class CMSBlock {
     public String Name;
-    public CMSLanguages Language;
+    public CMSLanguage Language;
 
-    public CMSBlock(String name, CMSLanguages language) {
+    public CMSBlock(String name, CMSLanguage language) {
         this.Name = name;
         this.Language = language;
     }

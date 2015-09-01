@@ -1,0 +1,66 @@
+<content>
+    <section id="page-title">
+        <Languages>
+            <en-us>
+                Hello world
+            </en-us>
+            <es-us>
+                Hola mundo
+            </es-us>
+            <en-ca>
+                Hello world
+            </en-ca>
+            <fr-ca>
+                Bonjour le monde
+            </fr-ca>
+        </Languages>
+    </section>
+    <section id="page-header">
+        <Languages>
+            <en-us>
+                Hello world
+            </en-us>
+            <es-us>
+                Hola mundo
+            </es-us>
+            <en-ca>
+                Hello world
+            </en-ca>
+            <fr-ca>
+                Bonjour le monde
+            </fr-ca>
+        </Languages>
+    </section>
+    <section id="page-body">
+        <Languages>
+            <en-us>
+                This is the page body
+            </en-us>
+            <es-us>
+                Este es el cuerpo de la página
+            </es-us>
+            <en-ca>
+                This is the page body
+            </en-ca>
+            <fr-ca>
+                Ceci est le corps de la page
+            </fr-ca>
+        </Languages>
+    </section>
+    <section id="page-footer">
+        <Languages>
+            <en-us>
+                This is the page footer
+            </en-us>
+            <es-us>
+                Este es el pie de página
+            </es-us>
+            <en-ca>
+                This is the page footer
+            </en-ca>
+            <fr-ca>
+                Ceci est la page footer
+            </fr-ca>
+        </Languages>
+    </section>
+</content>

@@ -1,0 +1,28 @@
+{
+  "page-title": {
+    "Languages": {
+      "en-us": "Hello world",
+      "es-us": "Hola mundo",
+      "en-ca": "Hello world",
+      "fr-ca": "Bonjour le monde"
+    }
+  },
+  "page-header": {
+    "en-us": "Hello world",
+    "es-us": "Hola mundo",
+    "en-ca": "Hello world",
+    "fr-ca": "Bonjour le monde"
+  },
+  "page-body": {
+    "en-us": "This is the page body",
+    "es-us": "Este es el cuerpo de la página",
+    "en-ca": "This is the page body",
+    "fr-ca": "Ceci est le corps de la page"
+  },
+  "page-footer": {
+    "en-us": "This is the page footer",
+    "es-us": "Este es el pie de página",
+    "en-ca": "This is the page footer",
+    "fr-ca": "Ceci est la page footer"
+  }
+}

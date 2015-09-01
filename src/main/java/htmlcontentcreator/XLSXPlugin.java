@@ -2,7 +2,6 @@ package htmlcontentcreator;
 
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
-import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import java.io.File;
@@ -12,22 +11,11 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-public class XLSXPluginI implements IContentFormatPlugin {
-    ContentFormat contentFormat;
-    File fileInput;
-    FileInputStream fileInputStream;
-    XSSFWorkbook workBook;
-    XSSFSheet sheet;
-    String currentFile;
-    String currentWorkingDirectory;
-    String currentPageName;
-    Iterator<Row> rowIterator;
-    ArrayList<CMSLanguage> languages;
-    ArrayList<CMSBlock> cmsBlocks;
+public class XLSXPlugin extends ContentFormatPlugin implements IContentFormatPlugin {
     private int currentRow = 0;
     private int currentColumn = 0;
 
-    public XLSXPluginI(String contentFormat, String contentType, String fileInput, String currentWorkingDirectory) {
+    public XLSXPlugin(String contentFormat, String contentType, String fileInput, String currentWorkingDirectory) {
         this.contentFormat = new ContentFormat(contentFormat, contentType);
         this.fileInput = new File(fileInput);
         this.currentFile = fileInput;

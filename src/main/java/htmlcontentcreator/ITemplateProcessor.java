@@ -1,5 +1,5 @@
 package htmlcontentcreator;
 
 public interface ITemplateProcessor {
-    void writeTemplates(XLSXPluginI xlsxPlugin);
+    void writeTemplates(ContentFormatPlugin plugin);
 }

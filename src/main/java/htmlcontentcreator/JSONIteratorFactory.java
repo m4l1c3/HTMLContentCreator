@@ -6,21 +6,18 @@ import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
 import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.IOException;
 import java.util.Iterator;
 
 public class JSONIteratorFactory implements IJSONIterator {
 
-    private JSONObject jsonObject;
-    private JSONArray jsonFilesArray;
-    private FileReader fileReader;
-    private JSONParser jsonParser = new JSONParser();
+    JSONObject jsonObject;
+    JSONArray jsonFilesArray;
+    JSONParser jsonParser = new JSONParser();
 
-    public JSONIteratorFactory(String currentWorkingDirectory, String jsonConfigFile) {
+    public JSONIteratorFactory(Config config) {
         try {
-            this.fileReader = new FileReader(currentWorkingDirectory + jsonConfigFile);
-            this.jsonObject = (JSONObject) this.jsonParser.parse(this.fileReader);
+            this.jsonObject = (JSONObject) this.jsonParser.parse(config.config);
             this.jsonFilesArray = (JSONArray) jsonObject.get("files");
         } catch (FileNotFoundException fileNotFoundException) {
             fileNotFoundException.printStackTrace();

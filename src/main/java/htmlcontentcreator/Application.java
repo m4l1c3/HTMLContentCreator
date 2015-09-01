@@ -8,7 +8,7 @@ public class Application {
         String currentWorkingDirectory;
 
         try {
-            currentWorkingDirectory = Application.class.getProtectionDomain().getCodeSource().getLocation().toURI().getPath() + "../../../";
+            currentWorkingDirectory = Application.class.getProtectionDomain().getCodeSource().getLocation().toURI().getPath();
             Config config = new Config(currentWorkingDirectory);
             JSONIteratorFactory jsonIteratorFactory;
             jsonIteratorFactory = new JSONIteratorFactory(config);

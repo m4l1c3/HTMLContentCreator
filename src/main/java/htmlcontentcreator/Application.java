@@ -11,7 +11,7 @@ public class Application {
             currentWorkingDirectory = Application.class.getProtectionDomain().getCodeSource().getLocation().toURI().getPath();
             Config config = new Config(currentWorkingDirectory);
             JSONIteratorFactory jsonIteratorFactory;
-            jsonIteratorFactory = new JSONIteratorFactory(config);
+            jsonIteratorFactory = new JSONIteratorFactory(config.config, "files");
             Iterator<String> jsonIterator = jsonIteratorFactory.getJsonIterator();
             process(currentWorkingDirectory, jsonIterator);
         } catch (Exception exception) {
@@ -21,18 +21,18 @@ public class Application {
         }
     }
 
-    private static void process(String currentWorkingDirectory, Iterator<String> jsonIterator) {
-        while (jsonIterator.hasNext()) {
-            try {
-                String currentIteratorFile = jsonIterator.next();
+    private static void process(String currentWorkingDirectory, Iterator jsonIterator) {
+        try {
+            while (jsonIterator.hasNext()) {
+                String currentIteratorFile = (String) jsonIterator.next();
                 ContentFormatPluginFactory contentFormatPluginFactory = new ContentFormatPluginFactory();
-                ContentFormatPlugin data = contentFormatPluginFactory.getContentFormat("XLSX", currentIteratorFile,
-                        currentWorkingDirectory);
+                ContentFormatPlugin data = contentFormatPluginFactory.getContentFormat(currentIteratorFile.substring(
+                        currentIteratorFile.lastIndexOf(".") + 1).toUpperCase(), currentIteratorFile, currentWorkingDirectory);
                 ITemplateWriter templateWriter = new ITemplateWriter();
                 templateWriter.writeTemplates(data);
-            } catch (Exception exception) {
-                exception.printStackTrace();
             }
+        } catch (Exception exception) {
+            exception.printStackTrace();
         }
     }
 }

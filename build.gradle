@@ -10,6 +10,7 @@ dependencies {
     compile('org.jsoup:jsoup:1.8.3')
     compile('com.googlecode.json-simple:json-simple:1.1.1')
     compile('org.jsoup:jsoup:1.8.3')
+    compile('org.jdom:jdom2:2.0.6')
 }
 
 jar {

@@ -2,6 +2,7 @@ package htmlcontentcreator;
 
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import java.io.File;
@@ -12,8 +13,8 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 public class XLSXPlugin extends ContentFormatPlugin implements IContentFormatPlugin {
-    private int currentRow = 0;
-    private int currentColumn = 0;
+    private XSSFWorkbook workBook;
+    private XSSFSheet sheet;
 
     public XLSXPlugin(String contentFormat, String contentType, String fileInput, String currentWorkingDirectory) {
         this.contentFormat = new ContentFormat(contentFormat, contentType);
@@ -30,8 +31,7 @@ public class XLSXPlugin extends ContentFormatPlugin implements IContentFormatPlu
             this.workBook = new XSSFWorkbook(this.fileInputStream);
             this.sheet = this.workBook.getSheetAt(0);
             this.rowIterator = sheet.iterator();
-            this.processDataRows(rowIterator);
-
+            this.processDataRows();
         } catch (FileNotFoundException fileNotFoundException) {
             fileNotFoundException.printStackTrace();
         } catch (IOException ioException) {
@@ -40,13 +40,13 @@ public class XLSXPlugin extends ContentFormatPlugin implements IContentFormatPlu
 
     }
 
-    public void getLanguages(Iterator<Cell> iterator) {
+    public void getLanguages(Iterator iterator) {
         while (iterator.hasNext()) {
-            Cell cell = iterator.next();
-            if (currentColumn != 0) {
+            Cell cell = (Cell) iterator.next();
+            if (this.currentColumn != 0) {
                 this.languages.add(new CMSLanguage(cell.toString()));
             }
-            currentColumn++;
+            this.currentColumn++;
         }
     }
 
@@ -59,10 +59,10 @@ public class XLSXPlugin extends ContentFormatPlugin implements IContentFormatPlu
         }
     }
 
-    public void processDataRows(Iterator<Row> iterator) {
+    public void processDataRows() {
         try {
-            while (iterator.hasNext()) {
-                Row row = iterator.next();
+            while (this.rowIterator.hasNext()) {
+                Row row = (Row) this.rowIterator.next();
                 Iterator<Cell> cellIterator = row.cellIterator();
                 this.processDataCells(cellIterator);
                 this.currentRow++;
@@ -73,7 +73,7 @@ public class XLSXPlugin extends ContentFormatPlugin implements IContentFormatPlu
         }
     }
 
-    public void processDataCells(Iterator<Cell> iterator) {
+    public void processDataCells(Iterator iterator) {
         try {
             if (this.currentRow == 0) {
                 this.getLanguages(iterator);
@@ -82,7 +82,7 @@ public class XLSXPlugin extends ContentFormatPlugin implements IContentFormatPlu
                 String sectionName = "";
 
                 while (iterator.hasNext()) {
-                    Cell cell = iterator.next();
+                    Cell cell = (Cell) iterator.next();
 
                     if (this.currentColumn != 0) {
                         CMSLanguage language = this.languages.get(this.currentColumn - 1);

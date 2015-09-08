@@ -6,6 +6,7 @@ import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
 import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.IOException;
 import java.util.Iterator;
 
@@ -15,10 +16,12 @@ public class JSONIteratorFactory implements IJSONIterator {
     JSONArray jsonFilesArray;
     JSONParser jsonParser = new JSONParser();
 
-    public JSONIteratorFactory(Config config) {
+    public JSONIteratorFactory(FileReader configFile, String sectionToParse) {
         try {
-            this.jsonObject = (JSONObject) this.jsonParser.parse(config.config);
-            this.jsonFilesArray = (JSONArray) jsonObject.get("files");
+            this.jsonObject = (JSONObject) this.jsonParser.parse(configFile);
+            if (!sectionToParse.equals("")) {
+                this.jsonFilesArray = (JSONArray) jsonObject.get(sectionToParse);
+            }
         } catch (FileNotFoundException fileNotFoundException) {
             fileNotFoundException.printStackTrace();
         } catch (ParseException parseException) {

@@ -1,28 +1,26 @@
 {
-  "page-title": {
-    "Languages": {
-      "en-us": "Hello world",
-      "es-us": "Hola mundo",
-      "en-ca": "Hello world",
-      "fr-ca": "Bonjour le monde"
-    }
+  "en-us": {
+    "page-title": "Hello world",
+    "page-header": "Hello world",
+    "page-body": "This is the page body",
+    "page-footer": "This is the page footer"
   },
-  "page-header": {
-    "en-us": "Hello world",
-    "es-us": "Hola mundo",
-    "en-ca": "Hello world",
-    "fr-ca": "Bonjour le monde"
+  "es-us": {
+    "page-title": "Hola mundo",
+    "page-header": "Hola mundo",
+    "page-body": "Este es el cuerpo de la página",
+    "page-footer": "Este es el pie de página"
   },
-  "page-body": {
-    "en-us": "This is the page body",
-    "es-us": "Este es el cuerpo de la página",
-    "en-ca": "This is the page body",
-    "fr-ca": "Ceci est le corps de la page"
+  "en-ca": {
+    "page-title": "Hello world",
+    "page-header": "Hello world",
+    "page-body": "This is the page body",
+    "page-footer": "This is the page footer"
   },
-  "page-footer": {
-    "en-us": "This is the page footer",
-    "es-us": "Este es el pie de página",
-    "en-ca": "This is the page footer",
-    "fr-ca": "Ceci est la page footer"
+  "fr-ca": {
+    "page-title": "Bonjour le monde",
+    "page-header": "Bonjour le monde",
+    "page-body": "Ceci est le corps de la page",
+    "page-footer": "Ceci est la page footer"
   }
 }

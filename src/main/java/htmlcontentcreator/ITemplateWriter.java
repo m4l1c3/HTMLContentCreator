@@ -28,7 +28,7 @@ public class ITemplateWriter implements ITemplateProcessor {
                         htmlTemplate = htmlTemplate.replace("%%" + currentContentPiece.SectionName + "%%",
                                 currentContentPiece.SectionContent);
                     }
-                    htmlTemplate = htmlTemplate.replace("%%language-code%%",
+                    htmlTemplate = htmlTemplate.replaceAll("%%language-code%%",
                             currentCMSBlock.Language.Name);
                     PrintWriter writer =
                             new PrintWriter(contentFormatplugin.currentWorkingDirectory + currentCMSBlock.Language.Name

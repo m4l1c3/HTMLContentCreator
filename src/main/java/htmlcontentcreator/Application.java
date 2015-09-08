@@ -1,5 +1,6 @@
 package htmlcontentcreator;
 
+import java.io.File;
 import java.util.Iterator;
 
 public class Application {
@@ -8,7 +9,8 @@ public class Application {
         String currentWorkingDirectory;
 
         try {
-            currentWorkingDirectory = Application.class.getProtectionDomain().getCodeSource().getLocation().toURI().getPath();
+            File f = new File("");
+            currentWorkingDirectory = f.getAbsolutePath() + "/";
             Config config = new Config(currentWorkingDirectory);
             JSONIteratorFactory jsonIteratorFactory;
             jsonIteratorFactory = new JSONIteratorFactory(config.config, "files");

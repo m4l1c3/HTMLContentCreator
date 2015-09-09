@@ -31,7 +31,7 @@ public class JSONIteratorFactory implements IJSONIterator {
         }
     }
 
-    public Iterator<String> getJsonIterator() {
+    public Iterator<String> getIterator() {
         return this.jsonFilesArray.iterator();
     }
 }

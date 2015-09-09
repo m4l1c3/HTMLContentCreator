@@ -14,7 +14,7 @@ public class Application {
             Config config = new Config(currentWorkingDirectory);
             JSONIteratorFactory jsonIteratorFactory;
             jsonIteratorFactory = new JSONIteratorFactory(config.config, "files");
-            Iterator<String> jsonIterator = jsonIteratorFactory.getJsonIterator();
+            Iterator<String> jsonIterator = jsonIteratorFactory.getIterator();
             process(currentWorkingDirectory, jsonIterator);
         } catch (Exception exception) {
             exception.printStackTrace();

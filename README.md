@@ -1,8 +1,6 @@
 # HTMLContentCreator
 I needed a way to automate pulling content from spreadsheets and generate HTML from the spreadsheet data. I wrote this simple java console app that reads formatted .XLSX spreadsheets and injects their values into HTML templates to generate translated blocks of HTML content.
 
-Right now it just runs through an IDE, next phase will create an executable or jar to just run on an end-user's machine to process their own templates.
-
 To use the app, simply create: ContentConfigJSON.txt based off of the ContentConfigSampleJSON.txt and include a comma separated list of excel spreadsheets in the files section:
 
 {
